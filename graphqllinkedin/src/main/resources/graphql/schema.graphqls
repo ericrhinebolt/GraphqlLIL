@@ -1,0 +1,51 @@
+type Customer {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    state: String!
+    zipCode: String!
+}
+
+type Products {
+    id: ID!
+    name: String!
+    size: Int!
+    variety: String!
+    price: Float!
+    status: String!
+}
+
+input CustomerInput{
+    firstName: String!
+    lastName: String!
+    email: String!
+    phoneNumber: String!
+    address: String!
+    city: String!
+    state: String!
+    zipCode: String!
+}
+
+input ProductsInput {
+    name: String!
+    size: Int!
+    variety: String!
+    price: String!
+    status: String!
+}
+
+type Query{
+    customers: [Customer]!
+    products: [Products]
+    customerById(id: ID): Customer
+    customerByEmail(email: String): Customer
+}
+
+type Mutation{
+    addCustomer(input: CustomerInput): Customer
+    addProducts(input: ProductsInput): Products
+}
